@@ -1,0 +1,186 @@
+CREATE Database Produtos;
+USE Produtos;
+CREATE Table TipoProduto
+(
+codTipo INT PRIMARY KEY,
+descricao VARCHAR(50)
+);
+CREATE Table Produto
+(
+codigo INT PRIMARY KEY,
+descricao VARCHAR(100),
+preco FLOAT,
+codTipo INT,
+CONSTRAINT fktipoproduto FOREIGN KEY (codTipo) REFERENCES TipoProduto(codTipo)
+);
+
+
+
+
+show databases;
+
+create database if not exists Marinheiros;
+
+use  marinheiros;
+
+create table if not exists marinheiro (
+idmarinheiro int not null ,
+nome varchar(80) not null ,
+avaliacao int,
+idade float,
+primary key(idmarinheiro)
+)default charset = utf8mb4;
+
+desc marinheiro;
+
+select * from marinheiro;
+
+insert into Marinheiro
+(idMarinheiro, nome, avaliacao, idade)
+values
+(22, 'Dust',    7, 45.0),
+(29, 'Brutus',  1, 33.0),
+(31, 'Lubber',  8, 55.5),
+(32, 'Andy',    8, 25.5),
+(58, 'Rusty',  10, 35.0),
+(64, 'Horacio', 7, 35.0),
+(71, 'Zorba',  10, 16.0),
+(74, 'Horacio', 9, 35.0),
+(85, 'Art',     3, 25.5)
+;
+
+
+insert into Marinheiro
+(idMarinheiro, nome, avaliacao, idade)
+values
+(97, 'Freddy', 7, null);
+
+create table if not exists Barco (
+idBarco int not null,
+nome varchar(80),
+cor varchar(20),
+primary key(idBarco)
+)default charset = utf8mb4;
+ 
+desc Barco;
+
+select * from Barco;
+
+insert into Barco
+ (idBarco, nome, cor)
+ values
+ (101, 'Interlake', 'Azul'),
+ (102, 'Interlake', 'Vermelho'),
+ (103, 'Clipper', 'Verde'),
+ (104, 'Marine', 'Vermelho');
+
+drop table Barco;
+
+drop table Reserva;
+
+drop database marinheiros;
+
+create table if not exists Reserva (
+idMarinheiro int not null, 
+idBarco int not null,
+dia date,
+primary key(idMarinheiro, idBarco),
+foreign key fkidMarilneiro (idMarinheiro) references Marinheiro (idMarinheiro),
+foreign key fk_idbairro (idBarco) references Barco(idBarco) 
+)default charset = utf8mb4;
+
+insert into Reserva
+(idMarinheiro, idBarco, dia)
+values
+(22, 101, '1998-10-10'),
+(22, 102, '1998-10-10'),
+(22, 103, '1998-08-10'),
+(22, 104, '1998-07-10'),
+(31, 102, '1998-10-10'),
+(31, 103, '1998-06-11'),
+(31, 104, '1998-12-11'),
+(64, 101, '1998-05-09'),
+(64, 102, '1998-05-09'),
+(74, 103, '1998-08-09');
+
+SELECT DISTINCT nome, idade
+FROM Marinheiro;
+
+SELECT DISTINCT idMarinheiro
+FROM Reserva
+WHERE idMarinheiro IN (22, 29);
+
+select * from Reserva;
+SELECT nome, idade
+FROM Marinheiro;
+
+SELECT idMarinheiro
+FROM Reserva
+WHERE dia BETWEEN '1998-08-01' AND '1998-08-31';
+desc Reserva;
+
+SELECT res.dia, res.idBarco, bar.nome
+FROM Marinheiro AS mar
+INNER JOIN Reserva AS res
+ON mar.idMarinheiro = res.idMarinheiro
+INNER JOIN Barco AS bar
+ON res.idBarco = bar.idBarco
+WHERE mar.nome = 'Dustin';
+
+SELECT idMarinheiro, nome
+FROM Marinheiro
+WHERE idade IS NULL;
+
+
+SELECT DISTINCT idBarco
+FROM Reserva
+WHERE idBarco IN (SELECT idBarco FROM Barco WHERE nome = 'Marine');
+
+
+SELECT idMarinheiro, nome
+FROM Marinheiro
+WHERE avaliacao > 6 AND idade >= 25;
+
+SELECT idMarinheiro
+FROM Reserva
+WHERE dia BETWEEN '1998-08-01' AND '1998-08-31';
+
+
+select res.dia, res.idBarco 
+from marinheiro as mar
+inner join reserva as res
+on mar.idmarinheiro = res.idMarinheiro
+where mar.nome='Dust';
+
+status;
+insert into regcli 
+(nome, salario, data_nasc, cidade ,estado ,sexo ,peso ,altura ,nacionalidade ,hoby) 
+values 
+( 'Gerson', '1500.12', '1957-03-07', 'Belo Horizonte', 'MG', 'M', '80.53', '1.72', 'Bras', 'Corrida');
+
+
+select * from regcli;
+select * ,if (salario>3000,'BOM','Baixo') as Classe from regcli;
+select * ,
+    case 
+        when salario >=3000 then 'Bom' 
+        when (salario <3000 and  salario >1001.05) then 'Medio' 
+        when salario <1002.10 then 'Baixo'
+    end as Classe
+    from regcli;
+
+select id, nome, data_nasc from regcli;
+( 'Bru', '4500.12', '1984-03-07', 'Pedra Azil', 'MG', 'F', '50.53', '1.62', 'Bras', 'GOLO');
+
+insert into regcli 
+(nome, salario, data_nasc, cidade ,estado ,sexo ,peso ,altura ,nacionalidade ,hoby) 
+values 
+( 'Gerson', '1500.12', '1957-03-07', 'Belo Horizonte', 'MG', 'M', '80.53', '1.72', 'Bras', 'Corrida'),
+( 'GersonES', '1500.12', '1957-03-07', 'Belo Horizonte', 'MG', 'M', '80.53', '1.72', 'Bras', 'Corrida'),
+( 'Gerson Eustaquio Dos Santos', '1500.12', '1957-03-07', 'Belo Horizonte', 'MG', 'M', '80.53', '1.72', 'Bras', 'Corrida');
+
+drop database arqcli;
+
+status;
+select user();
+

@@ -1,0 +1,17 @@
+CREATE Database funcionario;
+USE funcionario;
+SHOW DATABASES;
+
+CREATE TABLE funcionario(
+idFuncionario INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL UNIQUE,
+dataNascimento DATE,
+salario DOUBLE(10, 2),
+cargo VARCHAR(50),
+departamento VARCHAR(50),
+estado VARCHAR(50),
+cidade VARCHAR(50),
+dataContratacao DATE,
+dataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
