@@ -1,0 +1,40 @@
+
+CREATE Database ProdutoN;
+
+CREATE TABLE ProdutoN ( idProduto INT AUTO_INCREMENT PRIMARY KEY, nomeProduto VARCHAR(50) NOT NULL, descricao TEXT, preco DECIMAL(10, 2) NOT NULL, idMarca INT, dataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ) ENGINE=InnoDB;
+CREATE Database Marca;
+
+CREATE TABLE Marca ( idMarca INT AUTO_INCREMENT PRIMARY KEY, nomeMarca VARCHAR(50) NOT NULL, dataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ) ENGINE=InnoDB;
+
+SHOW DATABASES;
+
+ALTER TABLE Produton ADD CONSTRAINT marcaProduto FOREIGN KEY (idMarca) REFERENCES Marca(idMarca) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+INSERT INTO Marca (nomeMarca)
+VALUES
+('Pão de Açúcar'),
+('Carrefour'),
+('Extra');
+
+INSERT INTO Produton (nomeProduto, descricao, preco, idMarca)
+VALUES
+('Arroz Tio João', 'Arroz branco, 5kg', 22.99, 1),
+('Feijão Camil', 'Feijão carioca, 1kg', 7.49, 1),
+('Macarrão Nissin', 'Macarrão instantâneo, 90g', 3.19, 2),
+('Óleo de Soja Liza', 'Óleo de soja, 900ml', 5.79, 2),
+('Sabão em Pó Omo', 'Sabão em pó, 1kg', 15.99, 3),
+('Detergente Ypê', 'Detergente, 500ml', 2.99, 3),
+('Leite Molico', 'Leite em pó, 400g', 12.99, 1),
+('Frango Resfriado', 'Frango inteiro, 3kg', 18.49, 2),
+('Cerveja Skol', 'Cerveja lata, 350ml', 2.89, 2),
+('Queijo Minas', 'Queijo minas frescal, 500g', 13.49, 3);
+
+show CREATE TABLE ProdutoN;
+SELECT * FROM ProdutoN;
+SELECT * FROM Marca;
+
+SELECT ProdutoN.nomeProduto , marca.nomeMarca, preco FROM ProdutoN  INNER JOIN marca   ON ProdutoN.idMarca = marca.idMarca;
+
+SELECT p.nomeProduto , m.nomeMarca, preco FROM ProdutoN p INNER JOIN marca  m ON p.idMarca = m.idMarca;
+
+SELECT p.nomeProduto as produto, m.nomeMarca as marca, p.preco as preco FROM ProdutoN p INNER JOIN marca  m ON p.idMarca = m.idMarca;

@@ -71,8 +71,9 @@ select  COUNT(*) as QtdFuncionarios, estado FROM funcionario WHERE salario >=500
 SELECT MIN(salario) FROM funcionario;
 SELECT MAX(salario) FROM funcionario;
 SELECT nome, salario FROM funcionario WHERE salario = (SELECT MAX(salario) FROM funcionario);
-SELECT nome, MIN(salario) FROM funcionario WHERE salario = (SELECT MIN(salario) FROM funcionario);
-SELECT MAX(salario) as MaiorSalario, MIN(salario) as MenorSalario, AVG(salario) as MediaSalario, SUM(salario) as TotalSalario FROM funcionario;
 
+SELECT MAX(salario) as MaiorSalario, MIN(salario) as MenorSalario, AVG(salario) as MediaSalario, SUM(salario) as TotalSalario FROM funcionario;
+SELECT SUM(salario) as TotalSalario FROM funcionario;
+SELECT SUM(salario) as TotalSalario FROM funcionario WHERE estado='SP';
 select * ,if (salario>500000,'BOM','Baixo') as Classe from funcionario;
     WHERE salario >=5000 
