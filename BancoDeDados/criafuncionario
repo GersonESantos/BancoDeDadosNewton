@@ -15,3 +15,64 @@ cidade VARCHAR(50),
 dataContratacao DATE,
 dataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO funcionario (nome, email, dataNascimento, salario, cargo, departamento, estado, cidade, dataContratacao)
+VALUES
+('João Silva', 'joao.silva@email.com', '1985-05-15', 4500.50, 'Analista', 'TI', 'SP', 'São Paulo', '2015-03-10'),
+('Maria Oliveira', 'maria.oliveira@email.com', '1990-08-20', 3800.00, 'Assistente', 'RH', 'RJ', 'Rio de Janeiro', '2018-06-15'),
+('Carlos Souza', 'carlos.souza@email.com', '1978-01-12', 5200.75, 'Coordenador', 'Financeiro', 'MG', 'Belo Horizonte', '2010-10-05'),
+('Ana Pereira', 'ana.pereira@email.com', '1995-12-25', 2900.30, 'Estagiária', 'Marketing', 'PR', 'Curitiba', '2023-02-01'),
+('Luís Almeida', 'luis.almeida@email.com', '1982-07-10', 6800.40, 'Gerente', 'Vendas', 'RS', 'Porto Alegre', '2011-07-20'),
+('Beatriz Costa', 'beatriz.costa@email.com', '1999-03-08', 3500.00, 'Analista', 'TI', 'SP', 'Campinas', '2020-05-10'),
+('Roberto Gomes', 'roberto.gomes@email.com', '1987-11-18', 4900.60, 'Supervisor', 'Logística', 'BA', 'Salvador', '2016-08-12'),
+('Fernanda Lima', 'fernanda.lima@email.com', '1991-02-22', 5700.20, 'Engenheira', 'Projetos', 'DF', 'Brasília', '2017-09-25'),
+('Thiago Andrade', 'thiago.andrade@email.com', '1984-09-30', 6100.00, 'Analista', 'Suporte', 'CE', 'Fortaleza', '2014-01-10'),
+('Isabela Torres', 'isabela.torres@email.com', '1993-06-14', 4800.75, 'Assistente', 'Financeiro', 'PE', 'Recife', '2021-04-17'),
+('Pedro Santos', 'pedro.santos@email.com', '1980-05-19', 7000.00, 'Diretor', 'Administrativo', 'SP', 'São Paulo', '2008-11-22'),
+('Paula Mendes', 'paula.mendes@email.com', '1996-09-11', 2700.25, 'Estagiária', 'RH', 'RS', 'Porto Alegre', '2023-03-02'),
+('André Martins', 'andre.martins@email.com', '1988-10-04', 4400.40, 'Analista', 'TI', 'RJ', 'Niterói', '2019-07-15'),
+('Juliana Silva', 'juliana.silva@email.com', '1992-12-01', 5000.60, 'Coordenadora', 'Marketing', 'MG', 'Uberlândia', '2020-01-11'),
+('Gabriel Souza', 'gabriel.souza@email.com', '1997-03-25', 3200.10, 'Técnico', 'Suporte', 'PR', 'Londrina', '2021-10-08'),
+('Camila Almeida', 'camila.almeida@email.com', '1983-06-07', 6300.50, 'Gerente', 'Vendas', 'SP', 'São Bernardo do Campo', '2012-12-12'),
+('Renato Ribeiro', 'renato.ribeiro@email.com', '1989-08-28', 5400.80, 'Supervisor', 'Logística', 'RJ', 'Duque de Caxias', '2017-03-20'),
+('Larissa Lopes', 'larissa.lopes@email.com', '1994-11-03', 3100.75, 'Assistente', 'Projetos', 'BA', 'Feira de Santana', '2022-05-18'),
+('Bruno Cardoso', 'bruno.cardoso@email.com', '1977-12-15', 7600.90, 'Diretor', 'Financeiro', 'DF', 'Brasília', '2007-09-10'),
+('Aline Ferreira', 'aline.ferreira@email.com', '1990-04-09', 4700.60, 'Analista', 'TI', 'SC', 'Florianópolis', '2018-11-19'),
+('Hugo Rocha', 'hugo.rocha@email.com', '1986-01-20', 5100.50, 'Coordenador', 'Suporte', 'SP', 'Santos', '2016-06-25'),
+('Patrícia Carvalho', 'patricia.carvalho@email.com', '1985-07-15', 5800.30, 'Engenheira', 'Projetos', 'MG', 'Contagem', '2014-05-10'),
+('Rodrigo Moreira', 'rodrigo.moreira@email.com', '1981-03-09', 6700.90, 'Gerente', 'Logística', 'PR', 'Cascavel', '2010-02-22'),
+('Débora Farias', 'debora.farias@email.com', '1998-09-14', 3000.00, 'Técnica', 'Suporte', 'CE', 'Sobral', '2022-12-01'),
+('Ricardo Barbosa', 'ricardo.barbosa@email.com', '1983-11-25', 7200.70, 'Diretor', 'Administrativo', 'BA', 'Salvador', '2009-05-15'),
+('Elaine Silva', 'elaine.silva@email.com', '1991-08-01', 3600.45, 'Assistente', 'RH', 'RJ', 'Rio de Janeiro', '2020-07-12'),
+('Fábio Alves', 'fabio.alves@email.com', '1987-05-19', 4300.00, 'Analista', 'TI', 'RS', 'Canoas', '2019-02-04'),
+('Natália Dias', 'natalia.dias@email.com', '1995-02-11', 3900.50, 'Assistente', 'Financeiro', 'SP', 'Guarulhos', '2021-09-30'),
+('Leandro Fonseca', 'leandro.fonseca@email.com', '1989-07-17', 6100.20, 'Supervisor', 'Marketing', 'MG', 'Juiz de Fora', '2016-08-28'),
+('Cíntia Morais', 'cintia.morais@email.com', '1984-03-22', 5600.80, 'Engenheira', 'Projetos', 'PR', 'Maringá', '2015-10-05'),
+('Marcelo Rocha', 'marcelo.rocha@email.com', '1979-01-06', 7300.40, 'Diretor', 'Vendas', 'RJ', 'Rio de Janeiro', '2006-03-15'),
+('Rafaela Nunes', 'rafaela.nunes@email.com', '1993-10-10', 3400.75, 'Técnica', 'Suporte', 'SP', 'Campinas', '2022-01-23'),
+('Alexandra Souza', 'alexandra.souza@email.com', '1990-12-18', 4200.60, 'Coordenadora', 'Logística', 'BA', 'Itabuna', '2020-04-14'),
+('Edson Matos', 'edson.matos@email.com', '1982-04-13', 6500.30, 'Gerente', 'Projetos', 'DF', 'Brasília', '2011-09-11'),
+('Mariana Ribeiro', 'mariana.ribeiro@email.com', '1997-11-22', 3700.00, 'Analista', 'Marketing', 'SC', 'Joinville', '2021-06-05'),
+('Samuel Tavares', 'samuel.tavares@email.com', '1994-06-05', 4000.40, 'Assistente', 'Financeiro', 'PE', 'Olinda', '2019-12-09'),
+('Daniel Monteiro', 'daniel.monteiro@email.com', '1988-08-30', 5300.75, 'Supervisor', 'TI', 'RJ', 'Nova Iguaçu', '2017-02-16'),
+('Vanessa Brito', 'vanessa.brito@email.com', '1986-09-13', 5900.20, 'Engenheira', 'Projetos', 'MG', 'Ipatinga', '2014-08-27'),
+('Rogério Andrade', 'rogerio.andrade@email.com', '1980-02-03', 7800.90, 'Diretor', 'Administrativo', 'SP', 'São José dos Campos', '2007-12-01'),
+('Sabrina Lima', 'sabrina.lima@email.com', '1992-01-29', 4500.50, 'Analista', 'TI', 'PR', 'Foz do Iguaçu', '2019-03-11');
+
+
+select * from funcionario;
+select * FROM funcionario WHERE salario >=5000;
+select * FROM funcionario WHERE salario >=5000 and estado='SP';
+select  nome, email, salario FROM funcionario WHERE salario >=5000 and estado='SP';
+select  nome, email, salario, dataNascimento FROM funcionario WHERE salario >=5000 and estado='SP' ORDER BY dataNascimento DESC;
+select  nome, email, salario, estado FROM funcionario WHERE salario >=5000 and estado<>'SP' ;
+select  nome, email, salario, estado FROM funcionario WHERE salario >=5000 and estado not = 'SP' ;
+select  COUNT(*) as QtdFuncionarios, estado FROM funcionario WHERE salario >=5000 GROUP BY estado;
+SELECT MIN(salario) FROM funcionario;
+SELECT MAX(salario) FROM funcionario;
+SELECT nome, MAX(salario) FROM funcionario WHERE salario = (SELECT MAX(salario) FROM funcionario);
+SELECT nome, MIN(salario) FROM funcionario WHERE salario = (SELECT MIN(salario) FROM funcionario);
+SELECT MAX(salario) as MaiorSalario, MIN(salario) as MenorSalario, AVG(salario) as MediaSalario, SUM(salario) as TotalSalario FROM funcionario;
+
+select * ,if (salario>500000,'BOM','Baixo') as Classe from funcionario;
+    WHERE salario >=5000 

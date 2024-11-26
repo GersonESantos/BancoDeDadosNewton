@@ -179,8 +179,46 @@ values
 ( 'GersonES', '1500.12', '1957-03-07', 'Belo Horizonte', 'MG', 'M', '80.53', '1.72', 'Bras', 'Corrida'),
 ( 'Gerson Eustaquio Dos Santos', '1500.12', '1957-03-07', 'Belo Horizonte', 'MG', 'M', '80.53', '1.72', 'Bras', 'Corrida');
 
+
+***********
+CREATE Database Prod;
+USE Prod;
+CREATE Table TipoProd
+(
+codTipo INT PRIMARY KEY,
+descricao VARCHAR(50)
+);
+CREATE Table Prod
+(
+codigo INT PRIMARY KEY,
+descricao VARCHAR(100),
+preco FLOAT,
+codTipo INT,
+CONSTRAINT fktipoproduto FOREIGN KEY (codTipo) REFERENCES TipoProduto(codTipo)
+);
+
+ALTER TABLE Prod RENAME TO Produ;
+show TABLES;
+desc produ;
+alter TABLE Produ ADD COLUMN unidade INT;
+ALTER TABLE Produ MODIFY COLUMN unidade VARCHAR(10);
+ALTER TABLE Produ CHANGE COLUMN unidade unidades VARCHAR(15);
+ALTER TABLE Produ DROP COLUMN unidades;
+alter TABLE Produ ADD COLUMN unidade VARCHAR (18) after descricao;
+alter TABLE Produ ADD COLUMN unidade VARCHAR (18) first descricao;
+alter TABLE Produ ADD COLUMN unidade VARCHAR (18) NOT NULL after descricao;
 drop database arqcli;
 
 status;
 select user();
 
+CREATE Database cli;
+USE cli;
+CREATE Table regcli
+(
+codigo INT PRIMARY KEY,
+descricao VARCHAR(100),
+preco FLOAT,
+codTipo INT,
+CONSTRAINT fktipoproduto FOREIGN KEY (codTipo) REFERENCES TipoProduto(codTipo)
+);
