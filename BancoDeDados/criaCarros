@@ -1,0 +1,41 @@
+CREATE DATABASE carros;
+SHOW DATABASES;
+CREATE TABLE cor ( idCor INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(50) NOT NULL ) ENGINE=InnoDB;
+DESCRIBE cor;
+show CREATE TABLE cor;
+INSERT INTO cor (idCor, nome) VALUES (1, 'Vermelho'), (2, 'Azul'), (3, 'Verde'), (4, 'Preto'), (5, 'Branco'), (6, 'Amarelo'), (7, 'Cinza'), (8, 'Rosa');
+SELECT * FROM cor;
+
+CREATE TABLE marca ( idMarca INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(50) NOT NULL ) ENGINE=InnoDB;
+DESCRIBE marca;
+show CREATE TABLE marca;
+SELECT * FROM marca;
+CREATE TABLE modelo ( idModelo INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(50) NOT NULL ) ENGINE=InnoDB;
+DESCRIBE modelo;
+show CREATE TABLE modelo;
+SELECT * FROM modelo;
+INSERT INTO modelo (idModelo, nome) VALUES (1, 'Corolla'), (2, 'Fiesta'), (3, 'Cruze'), (4, 'Civic'), (5, 'Golf'), (6, 'HB20'), (7, 'Sentra'), (8, 'Toro');
+CREATE TABLE carros ( idCarros INT AUTO_INCREMENT PRIMARY KEY, idModelo INT NOT NULL, idMarca INT NOT NULL, preco FLOAT(10,2) NOT NULL, idCor INT NOT NULL, ano INT NOT NULL,
+FOREIGN KEY (idModelo) REFERENCES modelo(idModelo),
+FOREIGN KEY (idMarca) REFERENCES marca(idMarca),
+FOREIGN KEY (idCor) REFERENCES cor(idCor) )
+ENGINE=InnoDB;
+DESCRIBE carros;
+show CREATE TABLE carros;
+INSERT INTO carros (idCarros, idModelo, idMarca, preco, idCor, ano)
+VALUES
+(1, 1, 1, 120000.00, 1, 2019),
+(2, 2, 2, 85000.00, 2 , 2021),
+(3, 3, 3, 110000.00, 3 , 2022),
+(4, 4, 4, 95000.00, 3 , 2018),
+(5, 5, 5, 105000.00, 5 , 2020),
+(6, 6, 6, 70000.00, 6 , 2023),
+(7, 4, 4, 80000.00, 3 , 2019),
+(8, 6, 6, 95000.00, 2 , 2022),
+(9, 1, 1, 130000.00, 5 , 2016),
+(10, 3, 3, 115000.00, 2 , 2015);
+SELECT * FROM carros;
+SELECT c.idCarros, m.nome as modelo, ma.nome as marca, preco, co.nome as cor, ano FROM carros c
+INNER JOIN modelo m ON c.idModelo = m.idModelo
+INNER JOIN marca ma ON c.idMarca = ma.idMarca
+INNER JOIN cor co ON c.idCor = co.idCor;
