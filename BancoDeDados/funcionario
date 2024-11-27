@@ -1,0 +1,92 @@
+CREATE DATABASE funcionario;
+USE funcionario;
+
+-- Tabela principal: funcio
+CREATE TABLE funcionario (
+    Cod_Func INT AUTO_INCREMENT PRIMARY KEY,
+    Nom_Func VARCHAR(50) NOT NULL,
+    Val_Salario DOUBLE(10, 2),
+    Cod_Cargo INT, -- Declarar sem "fk1"
+    Cod_Formacao INT, -- Declarar sem "fk2"
+    FOREIGN KEY (Cod_Cargo) REFERENCES cargo(Cod_Cargo), -- Definição da chave estrangeira
+    FOREIGN KEY (Cod_Formacao) REFERENCES formacao_escolar(Cod_Formacao) -- Definição da chave estrangeira
+);
+
+-- Tabela: cargo
+CREATE TABLE Cargo (
+    Cod_Cargo INT AUTO_INCREMENT PRIMARY KEY,
+    Nom_Cargo VARCHAR(50) NOT NULL
+);
+
+-- Tabela: formacao
+CREATE TABLE Formacao_Escolar (
+    Cod_Formacao INT AUTO_INCREMENT PRIMARY KEY,
+    Nom_Formacao VARCHAR(50) NOT NULL
+);
+INSERT INTO cargo (Nom_Cargo) VALUES
+('Gerente'),
+('Analista'),
+('Técnico'),
+('Supervisor'),
+('Auxiliar'),
+('Diretor'),
+('Engenheiro'),
+('Assistente'),
+('Coordenador'),
+('Consultor');
+INSERT INTO formacao_escolar(Nom_Formacao) VALUES
+('Ensino Fundamental'),
+('Ensino Médio'),
+('Curso Técnico'),
+('Graduação'),
+('Pós-Graduação'),
+('Mestrado'),
+('Doutorado'),
+('Especialização'),
+('MBA'),
+('Certificação Profissional');
+
+INSERT INTO funcionario (Nom_Func, Val_Salario, Cod_Cargo, Cod_Formacao) VALUES
+('João Silva', 4500.00, 1, 4),
+('Maria Oliveira', 3500.00, 2, 4),
+('Carlos Souza', 2800.00, 3, 3),
+('Ana Paula', 5000.00, 4, 5),
+('Rafael Lima', 2000.00, 5, 2),
+('Fernanda Torres', 15000.00, 6, 6),
+('Thiago Martins', 8000.00, 7, 6),
+('Patrícia Almeida', 2500.00, 8, 3),
+('Rodrigo Costa', 5500.00, 9, 5),
+('Beatriz Lopes', 6000.00, 10, 7),
+('Lucas Pereira', 4500.00, 1, 4),
+('Gabriela Santos', 4000.00, 2, 4),
+('Juliana Costa', 3000.00, 3, 3),
+('Pedro Henrique', 7000.00, 4, 5),
+('Sofia Mendes', 2500.00, 5, 2),
+('Marcelo Fonseca', 16000.00, 6, 8),
+('Débora Silva', 9500.00, 7, 6),
+('Rafael Almeida', 2900.00, 8, 3),
+('Luana Martins', 6000.00, 9, 5),
+('Felipe Monteiro', 7000.00, 10, 9);
+SELECT Cod_Func, Nome_Func, Val_Salario, Cod_Cargo, Cod_Formacao
+FROM funcionario
+WHERE Val_Salario BETWEEN 4000 AND 6000;
+
+SELECT 
+    funcio.Nome_Func AS NomeFuncionario,
+    cargo.Nome_Cargo AS NomeCargo,
+    formacao.Nome_Formacao AS NomeFormacao
+FROM funcio
+JOIN cargo ON funcio.Cod_Cargo = cargo.Cod_Cargo
+JOIN formacao ON funcio.Cod_Formacao = formacao.Cod_Formacao;
+
+DROP DATABASE funcionario;
+SELECT * FROM cargo;
+SELECT * FROM formacao_escolar;
+SELECT * FROM funcionario;
+SELECT 
+    funcionario.Nom_Func AS NomeFuncionario,
+    cargo.Nom_Cargo AS NomeCargo,
+    formacao_escolar.Nom_Formacao AS NomeFormacao
+FROM funcionario
+INNER JOIN cargo ON funcionario.Cod_Cargo = cargo.Cod_Cargo
+INNER JOIN formacao_escolar ON funcionario.Cod_Formacao = formacao_escolar.Cod_Formacao;

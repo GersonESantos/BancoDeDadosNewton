@@ -77,3 +77,5 @@ SELECT SUM(salario) as TotalSalario FROM funcionario;
 SELECT SUM(salario) as TotalSalario FROM funcionario WHERE estado='SP';
 select * ,if (salario>500000,'BOM','Baixo') as Classe from funcionario;
     WHERE salario >=5000 
+
+    select  nome, salario FROM funcionario WHERE salario >=2000 or salario <= 5000;
