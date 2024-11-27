@@ -1,0 +1,13 @@
+CREATE Database funcio;
+USE funcio;
+SHOW DATABASES;
+
+CREATE TABLE funcionarios(
+Cod_Func INT AUTO_INCREMENT PRIMARY KEY,
+Nome_Func VARCHAR(50) NOT NULL,
+
+
+Val_Salario DOUBLE(10, 2),
+Cod_cargo INTEGER fk1,
+Cod_Formacao INTEGER fk2,
+);
