@@ -14,7 +14,7 @@ codTipo INT,
 CONSTRAINT fktipoproduto FOREIGN KEY (codTipo) REFERENCES TipoProduto(codTipo)
 );
 
-
+DESCRIBE Produto;
 
 
 show databases;
